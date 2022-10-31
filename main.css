@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+:root {
+  --white: #fff;
+  --dark: #282828;
+  --blue: #4b57df;
+  --pink: #C850C0;
+  --yellow: #FFCC70;
+  --gray: #585858;
+  --light-gray: #B8B8B8;
+  --dark-shadow: rgba(0,0,0,0.2);
+  --light-shadow: rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--white);
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  text-align: center;
+  border-radius: .1rem;
+  padding: 2rem;
+}
+
+header h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+}
+
+#mostrarBtn, #backBtn {
+  padding: 1rem;
+  font-size: 2rem;
+  background: var(--blue);
+  color: #fff;
+  border: #4b57df;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+#main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+.card-product {
+  width: 400px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--dark);
+  border-radius: .1rem;
+  box-shadow: 0 4px 8px 0 var(--dark-shadow);
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.card-product img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.card-product h3 {
+  font-size: 2rem;
+  text-align: center;
+  padding: .5rem;
+}
+
+.card-product p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: .5rem;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.card-product button {
+  font-size: 2rem;
+  padding: 1rem;
+  background: var(--blue);
+  color: #fff;
+  border: #4b57df;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+#mercadoLibreButton {
+  color: dark;
+  padding: 1rem;
+  font-size: 2rem;
+  background: var(--yellow);
+  color: var(--dark);
+  border: var(--yellow);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.card-product a {
+  color: dark;
+  padding: 1rem;
+  font-size: 2rem;
+  background: var(--yellow);
+  color: var(--dark);
+  border: var(--yellow);
+  border-radius: .5rem;
+  cursor: pointer;
+  text-decoration: none;
+}

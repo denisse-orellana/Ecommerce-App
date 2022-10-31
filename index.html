@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Denisse Orellana">
+    <meta name="description" content="Ecommerce">
+    <meta name="keywords" content="Ecomerce API, javaScript, js">
+    <link rel="stylesheet" href="./main.css">
+    <title>Ecommerce | Tarea 4 Escalab</title>
+  </head>
+  <body>
+    <header>
+      <h1>Find your products</h1>
+      <button id="mostrarBtn">Show products</button>
+      <button id="backBtn" onClick="window.location.reload();" style="display:none;">Back</button>
+      <button id="mercadoLibreButton">Mercado Libre products</button>
+    </header>
+    <main id="main">
+      <div id="root"></div>
+    </main>
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
