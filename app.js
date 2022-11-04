@@ -120,3 +120,18 @@ const showProducts = async () => {
 }
 
 window.addEventListener('load', showProducts)
+
+// Adding the states
+
+// 1. State
+const carState = {
+    carList: []
+}
+
+// 2. Template UI
+const carTemplate = () => {
+    if (carState.carList.length < 1) {
+        return `<p>Car empty</p>`
+    }
+}
+
