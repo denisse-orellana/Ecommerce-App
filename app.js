@@ -49,7 +49,7 @@ const mostrarProductosML = async() => {
     }
 }
 
-const addCardProducts = (product) => {
+const addCardProducts = (product, index) => {
     let lista = document.createElement("div")
 
     let h3 = document.createElement("h3")
@@ -68,21 +68,24 @@ const addCardProducts = (product) => {
     buyButton.innerHTML = 'Buy'
     buyButton.className = 'buy-button'
 
-    let addToCartButton = document.createElement("button")
-    addToCartButton.innerHTML = '<i class="fa-solid fa-cart-plus"></i>'
-    addToCartButton.className = 'cart-button'
+    let addCartButton = document.createElement("button")
+    addCartButton.className = 'cart-button'
+    addCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
+    addCartButton.onclick = function() {
+        addToCart(`${index}`)
+    }
 
     cardDiv.append(h3)
     cardDiv.append(image)
     cardDiv.append(price)
     cardDiv.append(buyButton)
-    cardDiv.append(addToCartButton)
+    cardDiv.append(addCartButton)
     lista.append(cardDiv)   
 
     document.getElementById("root").append(lista)
 }
 
-const addCardProductsML = (product) => {
+const addCardProductsML = (product, index) => {
     let div = document.createElement("div")
     div.className = "card-product"
 
@@ -101,21 +104,25 @@ const addCardProductsML = (product) => {
     buyButton.innerHTML = 'Buy'
     buyButton.href = product.permalink
 
-    let addToCartButton = document.createElement("button")
-    addToCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
-    addToCartButton.className = 'cart-button'
+    let addCartButton = document.createElement("button")
+    addCartButton.className = 'cart-button'
+    addCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
+    addCartButton.onclick = function() {
+        addToCart(`${index}`)
+    }
 
     div.append(h3)
     div.append(image)
     div.append(price)
     div.append(buyButton)
-    div.append(addToCartButton)
+    div.append(addCartButton)
+
     document.getElementById("root").append(div)
 }
 
 const addCard = (products) => {
-    products.forEach(product => {
-        (typeof product.id === 'number') ? addCardProducts(product) : addCardProductsML(product)
+    products.forEach((product, index) => {
+        (typeof product.id === 'number') ? addCardProducts(product, index) : addCardProductsML(product, index)
     })
 }
 
@@ -130,7 +137,7 @@ const showProducts = async () => {
     addCard(allProducts)
 }
 
-window.addEventListener('load', showProducts)
+window.addEventListener('DOMContentLoaded', showProducts)
 
 // Adding the states
 
@@ -172,3 +179,7 @@ const setCarState = (obj) => {
 // 5. Get the copy of cartState
 const getCartState = () => JSON.parse(JSON.stringify(cartState))
 
+// 6. Add product to cart
+const addToCart = (index) => {
+    console.log(`adding cart, index: ${index}`)
+}

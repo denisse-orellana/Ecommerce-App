@@ -133,6 +133,7 @@ header h1 {
   border-style: none;
   border-radius: .5rem;
   cursor: pointer;
+  display: inline;
 }
 
 .cart-button i {
