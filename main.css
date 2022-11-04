@@ -47,8 +47,8 @@ header h1 {
   padding: 1rem;
   font-size: 2rem;
   background: var(--blue);
-  color: #fff;
-  border: #4b57df;
+  color: var(--white);
+  border: var(--blue);
   border-radius: .5rem;
   cursor: pointer;
 }
@@ -95,8 +95,8 @@ header h1 {
   font-size: 2rem;
   padding: 1rem;
   background: var(--blue);
-  color: #fff;
-  border: #4b57df;
+  color: var(--white);
+  border: var(--blue);
   border-radius: .5rem;
   cursor: pointer;
 }
