@@ -66,11 +66,17 @@ const addCardProducts = (product) => {
 
     let buyButton = document.createElement("button")
     buyButton.innerHTML = 'Buy'
+    buyButton.className = 'buy-button'
+
+    let addToCartButton = document.createElement("button")
+    addToCartButton.innerHTML = '<i class="fa-solid fa-cart-plus"></i>'
+    addToCartButton.className = 'cart-button'
 
     cardDiv.append(h3)
     cardDiv.append(image)
     cardDiv.append(price)
     cardDiv.append(buyButton)
+    cardDiv.append(addToCartButton)
     lista.append(cardDiv)   
 
     document.getElementById("root").append(lista)
@@ -95,10 +101,15 @@ const addCardProductsML = (product) => {
     buyButton.innerHTML = 'Buy'
     buyButton.href = product.permalink
 
+    let addToCartButton = document.createElement("button")
+    addToCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
+    addToCartButton.className = 'cart-button'
+
     div.append(h3)
     div.append(image)
     div.append(price)
     div.append(buyButton)
+    div.append(addToCartButton)
     document.getElementById("root").append(div)
 }
 
@@ -115,7 +126,7 @@ const showProducts = async () => {
     let productsTwo = productsML.results
 
     allProducts = [ ...productsOne, ...productsTwo]
-    console.log(allProducts)
+    // console.log(allProducts)
     addCard(allProducts)
 }
 
@@ -124,14 +135,40 @@ window.addEventListener('load', showProducts)
 // Adding the states
 
 // 1. State
-const carState = {
-    carList: []
+const cartState = {
+    cart: []
 }
+console.log(cartState)
 
 // 2. Template UI
-const carTemplate = () => {
-    if (carState.carList.length < 1) {
-        return `<p>Car empty</p>`
+const cartTemplate = () => {
+    if (cartState.cart.length < 1) {
+        return `<p><i class="fa-regular fa-circle-xmark"></i> Cart empty</p>`
     }
+
+    let cartProducts = cartState.cart.map((product, index) => `<li>${product.charAt(0).toUpperCase() + product.slice(1).toLowerCase()} <button><i class="fa-solid fa-xmark"></i></button></li>`).join("")
+    return cartProducts
 }
+
+// 3. Render UI
+const renderCart = () => {
+    let cartList = document.getElementById('cart-list')
+    if (!cartList) return
+    cartList.innerHTML = cartTemplate()
+}
+
+document.addEventListener('DOMContentLoaded', renderCart)
+
+// 4. Set State
+const setCarState = (obj) => {
+    for (let key in obj) {
+        if (cartState.hasOwnProperty(key)) {
+            cartState[key] = obj[key]
+        }
+    }
+    renderCart()
+}
+
+// 5. Get the copy of cartState
+const getCartState = () => JSON.parse(JSON.stringify(cartState))
 
