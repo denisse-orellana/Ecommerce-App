@@ -145,15 +145,14 @@ window.addEventListener('DOMContentLoaded', showProducts)
 const cartState = {
     cart: []
 }
-console.log(cartState)
 
 // 2. Template UI
 const cartTemplate = () => {
     if (cartState.cart.length < 1) {
-        return `<p><i class="fa-regular fa-circle-xmark"></i> Cart empty</p>`
+        return `<p><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
     }
 
-    let cartProducts = cartState.cart.map((product, index) => `<li>${product.charAt(0).toUpperCase() + product.slice(1).toLowerCase()} <button><i class="fa-solid fa-xmark"></i></button></li>`).join("")
+    let cartProducts = cartState.cart.map((product, index) => `<li>${product.title} <button onclick="removeProduct(${index})"><i class="fa-solid fa-xmark"></i></button>`).join("")
     return cartProducts
 }
 
@@ -167,7 +166,7 @@ const renderCart = () => {
 document.addEventListener('DOMContentLoaded', renderCart)
 
 // 4. Set State
-const setCarState = (obj) => {
+const setCartState = (obj) => {
     for (let key in obj) {
         if (cartState.hasOwnProperty(key)) {
             cartState[key] = obj[key]
@@ -180,6 +179,15 @@ const setCarState = (obj) => {
 const getCartState = () => JSON.parse(JSON.stringify(cartState))
 
 // 6. Add product to cart
-const addToCart = (index) => {
-    console.log(`adding cart, index: ${index}`)
+const addToCart = (i) => {
+    let product = allProducts[i]
+
+    const lastCartState = getCartState()
+    lastCartState.cart.push(product)
+    setCartState(lastCartState)
+}
+
+//  7. Remove product from the cart
+const removeProduct = (index) => {
+    console.log('Removing product from cart...')
 }
