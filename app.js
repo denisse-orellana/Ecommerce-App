@@ -209,7 +209,7 @@ const showProducts = async () => {
     addCard(allProducts)
 }
 
-// Adding the states
+// JavaScript Reactivity: Adding the states
 
 // 1. State
 const cartState = {
