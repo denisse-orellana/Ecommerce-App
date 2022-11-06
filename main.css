@@ -181,6 +181,14 @@ header h1 {
   list-style-type: none;
 }
 
+.remove-product-button {
+  font-size: 2rem;
+  background: var(--white);
+  border: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 /* @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
 } */
