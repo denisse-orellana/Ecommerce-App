@@ -198,6 +198,8 @@ main {
   position: fixed;
   top: 0;
   width: 100%;
+  font-weight: bold;
+  text-shadow: -2px 0 var(--dark), 0 1px var(--dark), 1px 0 var(--dark), 0 -1px var(--dark);
 }
 
 .nav-wrapper .active {
