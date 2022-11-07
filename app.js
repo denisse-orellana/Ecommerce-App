@@ -199,7 +199,7 @@ const cartState = {
 let deleteProduct = (indexProduct) => {
     const prevCartState = getCartState()
     actualCartState = prevCartState.cart.filter((product, index) => index != parseInt(indexProduct))
-    console.log(actualCartState)
+    // console.log(actualCartState)
     setCartState({ cart: actualCartState })
 }
 
