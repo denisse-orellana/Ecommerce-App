@@ -30,15 +30,12 @@ body {
   height: 100%;
 }
 
-main {
-  margin-left: 27rem;
-}
-
 header {
   text-align: center;
   border-radius: .1rem;
   padding: 2rem;
-  margin-left: 27rem;
+  margin-left: 27.5rem;
+  margin-top: 9.5rem;
 }
 
 header h1 {
@@ -47,6 +44,11 @@ header h1 {
   text-align: center;
   padding: 1rem;
 }
+
+main {
+  margin-left: 27.5rem;
+}
+
 
 #mostrarBtn, #backBtn {
   padding: 1rem;
@@ -58,26 +60,25 @@ header h1 {
   cursor: pointer;
 }
 
-#main {
+#root {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 2rem 2rem 2rem 2rem;
 }
 
 .card-product {
-  width: 400px;
+  width: 250px;
   margin-bottom: 2rem;
   border: 1px solid var(--dark);
-  border-radius: .1rem;
   box-shadow: 0 4px 8px 0 var(--dark-shadow);
   text-align: center;
   padding-bottom: 2rem;
+  border-radius: .5rem;
 }
 
 .card-product img {
-  width: 100%;
-  height: 350px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -147,9 +148,8 @@ header h1 {
 }
 
 .sidebar {
-  width: 22rem;
-  position: fixed;
-  z-index: 0;
+  width: 24rem;
+  position: absolute;
   top: 2rem;
   left: 2rem;
   background: var(--white);
@@ -165,9 +165,11 @@ header h1 {
   font-size: 2.2rem;
   text-align: center;
   margin-bottom: .5rem;
+  color: var(--blue);
 }
 
 .sidebar p {
+  margin-top: 1rem;
   font-weight: light;
   font-size: 1.8rem;
   text-align: center;
@@ -175,6 +177,7 @@ header h1 {
 }
 
 .sidebar li {
+  margin-top: .5rem;
   font-weight: normal;
   font-size: 1.5rem;
   text-align: left;
@@ -187,6 +190,51 @@ header h1 {
   border: none;
   vertical-align: middle;
   cursor: pointer;
+}
+
+.nav-wrapper {
+  overflow: hidden;
+  background-color: var(--dark);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-wrapper .active {
+  float: left;
+  color: var(--white);
+  text-align: center;
+  padding: 3rem;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.nav-wrapper a:hover {
+  background-color: var(--white);
+  color: black;
+}
+
+.nav-wrapper a.active {
+  background-color: var(--blue);
+  color: white;
+}
+
+.nav-wrapper .cart {
+  float: right;
+  color: var(--white);
+  text-align: center;
+  padding: 3rem;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.div-cart {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.remove-product-button {
+  color: var(--blue);
 }
 
 /* @media screen and (max-height: 450px) {

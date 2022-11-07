@@ -13,14 +13,21 @@
     <title>Ecommerce | Escalab Exam</title>
   </head>
   <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="active">Ecommerce App</a>
+        <a href="#" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </nav>
     <header>
-      <h1>Find your products</h1>
+      <h1><i class="fa-solid fa-magnifying-glass"></i> Search your products</h1>
     </header>
     <main id="main">
       <div id="root"></div>
     </main>
-    <section id="sidebar" class="sidebar">
+    <section id="sidebar" class="sidebar" style="display: none;">
       <h2>Your Shopping <i class="fa-solid fa-cart-shopping"></i></h2>
+      <hr>
       <ul id="cart-list"></ul>
     </section>
     <!-- Axios CDN -->

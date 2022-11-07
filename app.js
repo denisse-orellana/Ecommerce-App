@@ -1,7 +1,7 @@
 const productos = [
     {
       id: 1,
-      title: 'Tablet Almost New Last Model',
+      title: 'Tablet New Model',
       price: 85,
       stock: 70,
       image: 'https://home.ripley.cl/store/Attachment/WOP/D113/2000379185788/2000379185788_2.jpg'
@@ -64,7 +64,7 @@ const productos = [
     }, 
     {
       id: 10,
-      title: 'Soporte computador',
+      title: 'Soporte computador Último modelo 22 Soporta peso',
       price: 30,
       stock: 50,
       image: 'https://http2.mlstatic.com/D_NQ_NP_2X_837986-MLC40695367153_022020-F.webp'
@@ -209,6 +209,26 @@ const showProducts = async () => {
     addCard(allProducts)
 }
 
+// Adding the cart
+
+let cart = ''
+let sidebar = document.getElementById('sidebar')
+let cartButton = document.querySelector('.cart')
+
+const showCard = () => {
+    sidebar.style.display = "inline"
+    cart = 1
+}
+
+const hideCard = () => {
+    sidebar.style.display = "none"
+    cart = ''
+}
+
+cartButton.addEventListener('click', () => {
+    (cart) ? hideCard() : showCard()
+})
+
 // JavaScript Reactivity: Adding the states
 
 // 1. State
@@ -225,12 +245,15 @@ let deleteProduct = (indexProduct) => {
 }
 
 // 2. Template UI
+
 const cartTemplate = () => {
     if (cartState.cart.length < 1) {
         return `<p><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
-    }
+    } 
 
-    let cartProducts = cartState.cart.map((product, indexProduct) => `<li>${product.title} <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`).join("")
+    let cartProducts = cartState.cart.map((product, indexProduct) => 
+        `<li>${product.title}. <strong>Price: $${product.price ||= product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
+    ).join("")
     return cartProducts
 }
 

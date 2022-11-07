@@ -14,4 +14,4 @@ The project can be seen here: [EcommerceApp](https://denisseee.github.io/Ecommer
 
 ## Preview
 
-<p align="left"><img width="50%" src="./assets/ecommerce-app.png"></p>
+<p align="left"><img width="100%" src="./assets/ecommerce-app.png"></p>
