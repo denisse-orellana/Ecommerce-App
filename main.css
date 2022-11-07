@@ -202,13 +202,20 @@ main {
   text-shadow: -2px 0 var(--dark), 0 1px var(--dark), 1px 0 var(--dark), 0 -1px var(--dark);
 }
 
-.nav-wrapper .active {
-  float: left;
+.nav-wrapper a {
   color: var(--white);
   text-align: center;
   padding: 3rem;
   font-size: 3rem;
   text-decoration: none;
+}
+
+.nav-wrapper .active {
+  float: left;
+}
+
+.nav-wrapper .cart {
+  float: right;
 }
 
 .nav-wrapper a:hover {
@@ -219,15 +226,6 @@ main {
 .nav-wrapper a.active {
   background-color: var(--blue);
   color: white;
-}
-
-.nav-wrapper .cart {
-  float: right;
-  color: var(--white);
-  text-align: center;
-  padding: 3rem;
-  font-size: 3rem;
-  text-decoration: none;
 }
 
 .div-cart {
