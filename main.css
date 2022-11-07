@@ -237,6 +237,25 @@ main {
   color: var(--blue);
 }
 
-/* @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-} */
+@media only screen and (max-width: 600px){
+  .sidebar {
+    position: inline;
+    top: 2rem;
+    left: 3rem;
+    width: 80%;
+  } 
+  header {
+    margin-left: 0rem;
+    margin-top: 7rem;
+  }
+  main {
+    margin-left: 0rem;
+  }
+  header h1 {
+    font-size: 2.3rem;
+  }
+  .nav-wrapper a {
+    padding: 2rem;
+    font-size: 2.2rem;
+  }
+}
