@@ -211,7 +211,7 @@ const cartTemplate = () => {
     } 
 
     let cartProducts = cartState.cart.map((product, indexProduct) => 
-        `<li>${product.title}. <strong>Price: $${product.price ||= product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
+        `<li>${product.title}. <strong>Price: $${product.price || product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
     ).join("")
     return cartProducts
 }
