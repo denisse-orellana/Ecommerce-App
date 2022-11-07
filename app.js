@@ -70,7 +70,6 @@ const productos = [
       image: 'https://http2.mlstatic.com/D_NQ_NP_2X_837986-MLC40695367153_022020-F.webp'
     }
   ]
-// import { productos } from "./products.js"
 
 let url = "https://api.mercadolibre.com/sites/MLA/search"
 
@@ -121,80 +120,40 @@ const mostrarProductosML = async() => {
     }
 }
 
-const addCardProducts = (product, index) => {
-    let lista = document.createElement("div")
+const addCardProducts = (data) => {
+    data.forEach((product, index) => {
+        let lista = document.createElement("div")
 
-    let h3 = document.createElement("h3")
-    h3.innerHTML = product.title
+        let h3 = document.createElement("h3")
+        h3.innerHTML = product.title
 
-    let cardDiv = document.createElement("div")
-    cardDiv.className = "card-product"
+        let cardDiv = document.createElement("div")
+        cardDiv.className = "card-product"
 
-    let image = document.createElement("img")
-    image.src = product.image
+        let image = document.createElement("img")
+        image.src = product.image || product.thumbnail
 
-    let price = document.createElement("p")
-    price.innerHTML = `US$ ${product.price}`
+        let price = document.createElement("p")
+        price.innerHTML = (product.prices) ? `${product.prices.prices[0].currency_id} $${product.prices.prices[0].amount}` : `US$ ${product.price}` 
 
-    let buyButton = document.createElement("button")
-    buyButton.innerHTML = 'Buy'
-    buyButton.className = 'buy-button'
+        let buyButton = document.createElement("a")
+        buyButton.style.display = "inline"
+        buyButton.innerHTML = 'Buy'
+        if (product.prices) { buyButton.href = product.permalink }
 
-    let addCartButton = document.createElement("button")
-    addCartButton.className = 'cart-button'
-    addCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
-    addCartButton.onclick = function() {
-        addToCart(`${index}`)
-    }
+        let addCartButton = document.createElement("button")
+        addCartButton.className = 'cart-button'
+        addCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
+        addCartButton.onclick = function() { addToCart(`${index}`) }
 
-    cardDiv.append(h3)
-    cardDiv.append(image)
-    cardDiv.append(price)
-    cardDiv.append(buyButton)
-    cardDiv.append(addCartButton)
-    lista.append(cardDiv)   
+        cardDiv.append(h3)
+        cardDiv.append(image)
+        cardDiv.append(price)
+        cardDiv.append(buyButton)
+        cardDiv.append(addCartButton)
+        lista.append(cardDiv)   
 
-    document.getElementById("root").append(lista)
-}
-
-const addCardProductsML = (product, index) => {
-    let div = document.createElement("div")
-    div.className = "card-product"
-
-    let h3 = document.createElement("h3")
-    h3.innerHTML = product.title
-
-    let image = document.createElement("img")
-    image.src = product.thumbnail
-    image.alt = product.title
-
-    let price = document.createElement("p")
-    price.innerHTML = `${product.prices.prices[0].currency_id} $${product.prices.prices[0].amount}`
-
-    let buyButton = document.createElement("a")
-    buyButton.style.display = "inline"
-    buyButton.innerHTML = 'Buy'
-    buyButton.href = product.permalink
-
-    let addCartButton = document.createElement("button")
-    addCartButton.className = 'cart-button'
-    addCartButton.innerHTML = `<i class="fa-solid fa-cart-plus"></i>`
-    addCartButton.onclick = function() {
-        addToCart(`${index}`)
-    }
-
-    div.append(h3)
-    div.append(image)
-    div.append(price)
-    div.append(buyButton)
-    div.append(addCartButton)
-
-    document.getElementById("root").append(div)
-}
-
-const addCard = (products) => {
-    products.forEach((product, index) => {
-        (typeof product.id === 'number') ? addCardProducts(product, index) : addCardProductsML(product, index)
+        document.getElementById("root").append(lista)
     })
 }
 
@@ -206,7 +165,7 @@ const showProducts = async () => {
 
     allProducts = [ ...productsOne, ...productsTwo]
     // console.log(allProducts)
-    addCard(allProducts)
+    addCardProducts(allProducts)
 }
 
 // Adding the cart
