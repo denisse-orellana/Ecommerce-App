@@ -16,7 +16,7 @@
     <nav>
       <div class="nav-wrapper">
         <a href="/" class="active">Ecommerce App</a>
-        <a href="#" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="#" class="cart"><i class="fa-solid fa-cart-shopping"></i> <span class="cart-items">0</span></a>
       </div>
     </nav>
     <header>
@@ -25,10 +25,13 @@
     <main id="main">
       <div id="root"></div>
     </main>
-    <section id="sidebar" class="sidebar" style="display: none;">
+    <section id="sidebar" class="sidebar" style="display:none;">
       <h2>Your Shopping <i class="fa-solid fa-cart-shopping"></i></h2>
       <hr>
       <ul id="cart-list"></ul>
+      <div class="pay-button">
+        <button class="buy-button">Pay</button>
+      </div>
     </section>
     <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

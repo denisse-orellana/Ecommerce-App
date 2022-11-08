@@ -173,6 +173,8 @@ const showProducts = async () => {
 let cart = ''
 let sidebar = document.getElementById('sidebar')
 let cartButton = document.querySelector('.cart')
+let cartItems = document.querySelector('.cart-items')
+let payButton = document.querySelector('.pay-button')
 
 const showCard = () => {
     sidebar.style.display = "inline"
@@ -207,12 +209,17 @@ let deleteProduct = (indexProduct) => {
 
 const cartTemplate = () => {
     if (cartState.cart.length < 1) {
+        payButton.style.display = "none"
         return `<p><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
     } 
 
     let cartProducts = cartState.cart.map((product, indexProduct) => 
         `<li>${product.title}. <strong>Price: $${product.price || product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
     ).join("")
+
+    cartItems.innerHTML = cartState.cart.length
+    payButton.style.display = "inline"
+    
     return cartProducts
 }
 

@@ -97,6 +97,10 @@ main {
   margin-bottom: 1rem;
 }
 
+.pay-button {
+  display: none;
+}
+
 .buy-button {
   font-size: 2rem;
   padding: 1rem;
@@ -105,6 +109,8 @@ main {
   border: var(--blue);
   border-radius: .5rem;
   cursor: pointer;
+  margin-top: 1rem;
+  float: right;
 }
 
 #mercadoLibreButton {
@@ -235,6 +241,11 @@ main {
 
 .remove-product-button {
   color: var(--blue);
+}
+
+.cart-items {
+  font-size: 2rem;
+  color: var(--yellow);
 }
 
 @media only screen and (max-width: 600px){
