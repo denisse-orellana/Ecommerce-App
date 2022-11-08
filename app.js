@@ -210,6 +210,7 @@ let deleteProduct = (indexProduct) => {
 const cartTemplate = () => {
     if (cartState.cart.length < 1) {
         payButton.style.display = "none"
+        cartItems.innerHTML = cartState.cart.length
         return `<p><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
     } 
 
