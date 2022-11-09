@@ -211,11 +211,11 @@ const cartTemplate = () => {
     if (cartState.cart.length < 1) {
         payButton.style.display = "none"
         cartItems.innerHTML = cartState.cart.length
-        return `<p><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
+        return `<p class="cart-empty"><i class="fa-regular fa-circle-xmark"></i> Empty</p>`
     } 
 
     let cartProducts = cartState.cart.map((product, indexProduct) => 
-        `<li>${product.title}. <strong>Price: $${product.price || product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
+        `<li><p class="div-cart">${product.title}.</p><strong>Price: $${product.price || product.prices.prices[0].amount}</strong> <button onclick="deleteProduct(${indexProduct})" class="remove-product-button"><i class="fa-solid fa-xmark"></i></button></li>`
     ).join("")
 
     cartItems.innerHTML = cartState.cart.length

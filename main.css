@@ -177,9 +177,9 @@ main {
 .sidebar p {
   margin-top: 1rem;
   font-weight: light;
-  font-size: 1.8rem;
-  text-align: center;
-  color: var(--blue);
+  font-size: 1.5srem;
+  /* text-align: center; */
+  color: var(--dark);
 }
 
 .sidebar li {
@@ -246,6 +246,12 @@ main {
 .cart-items {
   font-size: 2rem;
   color: var(--yellow);
+}
+
+.cart-empty {
+  font-size: 1.8rem;
+  color: var(--blue) !important;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px){
