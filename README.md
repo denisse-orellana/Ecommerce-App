@@ -3,10 +3,6 @@
 Simple Ecommerce App with Axios, MercadoLibre API and JavaScript Reactivity.
 
 Project for Escalab Academy. 
-Group members: 
-* [José Luis Cordero](https://github.com/Joscord)
-* [Sebastián Carrera](https://github.com/sebascarrera2000)
-* [Denisse Orellana](https://github.com/denisseee)
 
 ## App 🚀
 
