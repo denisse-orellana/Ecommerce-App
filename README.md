@@ -6,7 +6,7 @@ Project for Escalab Academy.
 
 ## App 🚀
 
-The project can be seen here: [EcommerceApp](https://denisseee.github.io/Ecommerce-App/)
+The project can be seen here: [EcommerceApp](https://denisse-orellana.github.io/Ecommerce-App/)
 
 ## Preview
 
